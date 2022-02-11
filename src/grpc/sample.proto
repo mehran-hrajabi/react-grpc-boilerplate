@@ -2,7 +2,7 @@ syntax = "proto3";
 package sample;
 
 service SampleService {
-  rpc Add (ClientRequest) returns (ServerResponse);
+  rpc RPCSample (ClientRequest) returns (ServerResponse);
 }
 
 message ClientRequest {

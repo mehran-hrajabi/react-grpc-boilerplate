@@ -35,8 +35,8 @@ export class SampleServiceClient {
     this.options_ = options;
   }
 
-  methodInfoAdd = new grpcWeb.MethodDescriptor(
-    '/sample.SampleService/Add',
+  methodInfoRPCSample = new grpcWeb.MethodDescriptor(
+    '/sample.SampleService/RPCSample',
     grpcWeb.MethodType.UNARY,
     grpc_sample_pb.ClientRequest,
     grpc_sample_pb.ServerResponse,
@@ -46,17 +46,17 @@ export class SampleServiceClient {
     grpc_sample_pb.ServerResponse.deserializeBinary
   );
 
-  add(
+  rPCSample(
     request: grpc_sample_pb.ClientRequest,
     metadata: grpcWeb.Metadata | null): Promise<grpc_sample_pb.ServerResponse>;
 
-  add(
+  rPCSample(
     request: grpc_sample_pb.ClientRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.RpcError,
                response: grpc_sample_pb.ServerResponse) => void): grpcWeb.ClientReadableStream<grpc_sample_pb.ServerResponse>;
 
-  add(
+  rPCSample(
     request: grpc_sample_pb.ClientRequest,
     metadata: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.RpcError,
@@ -64,18 +64,18 @@ export class SampleServiceClient {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +
-          '/sample.SampleService/Add',
+          '/sample.SampleService/RPCSample',
         request,
         metadata || {},
-        this.methodInfoAdd,
+        this.methodInfoRPCSample,
         callback);
     }
     return this.client_.unaryCall(
     this.hostname_ +
-      '/sample.SampleService/Add',
+      '/sample.SampleService/RPCSample',
     request,
     metadata || {},
-    this.methodInfoAdd);
+    this.methodInfoRPCSample);
   }
 
 }
