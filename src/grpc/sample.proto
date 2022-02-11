@@ -1,0 +1,14 @@
+syntax = "proto3";
+package sample;
+
+service SampleService {
+  rpc Add (ClientRequest) returns (ServerResponse);
+}
+
+message ClientRequest {
+  string content = 1;
+}
+
+message ServerResponse {
+  string result = 1;
+}
